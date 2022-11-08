@@ -1,7 +1,7 @@
 import React from 'react';
 import Sidebar from './components/Sidebar'
 import Chat from './components/Chat'
-import {useState, useEffect} from 'react'
+import {useState, useEffect, useCallback} from 'react'
 import { chatsData, dialogsData } from './data';
 import axios from 'axios';
 import { nanoid } from 'nanoid'
@@ -12,13 +12,20 @@ const Main = (props) => {
     const [dialogFilters, setDialogFilters] = useState("")
     const [messageInChat, setMessageInChat] = useState('')
     const [answer, setAnswer] = useState('')
+    const [inputMessage, setInputMessage] = useState(null)
+    const [onButton, setOnButton] = useState(false)
 
-   /*  useEffect(() => {
+    const handleChange = event => {
+        setInputMessage(event.target.value);
+        setOnButton(false)
+      };
+
+    useEffect(() => {
         setTimeout(() => {
             getAnswer()
-          }, 15000);
-    }, [setMainChat])
- */
+          }, 1000);
+    }, [])
+
     async function getAnswer() {
         const apiUrl = "https://api.chucknorris.io/jokes/random"
         axios 
@@ -63,6 +70,10 @@ const Main = (props) => {
                     onAddSms={addSms}
                     onSmsText={setMessageInChat}
                     chuckAnswer={answer}
+                    handleChange={handleChange}
+                    setOnButton={setOnButton}
+                    onButton={onButton}
+                    inputMessage={inputMessage}
                     />
                 )
 

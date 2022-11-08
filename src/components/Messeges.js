@@ -1,6 +1,6 @@
 import React from 'react';
 import Messege from './Messege';
-const Messeges = ({chatAvatar, messageInChat, myAnswer, chuckAnswer}) => {
+const Messeges = ({ chatAvatar, messageInChat, myAnswer, chuckAnswer, onButton, inputMessage}) => {
     return (
         <div className="messeges">
             <Messege 
@@ -13,6 +13,8 @@ const Messeges = ({chatAvatar, messageInChat, myAnswer, chuckAnswer}) => {
                 chuckAnswer={chuckAnswer} 
                 chatAvatar={chatAvatar} 
                 messageInChat={messageInChat} 
+                onButton={onButton}
+                inputMessage={inputMessage}
             />
             
             {/* <Messege chatAvatar={chatAvatar} messageInChat={messageInChat} myAnswer={myAnswer}/> */}

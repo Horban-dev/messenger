@@ -1,5 +1,5 @@
 import React from 'react';
-const Messege = ({chatAvatar, messageInChat, myAnswer, chuckAnswer}) => {
+const Messege = ({chatAvatar, messageInChat, myAnswer, chuckAnswer,onButton, inputMessage}) => {
    
     return (
         <div className="messege owner">
@@ -11,7 +11,12 @@ const Messege = ({chatAvatar, messageInChat, myAnswer, chuckAnswer}) => {
                 </div>
             </div>
             <div className="messageContent">
-                <p>{myAnswer}</p>
+            {
+                    onButton ?
+                    <p>{inputMessage}</p>
+                    :null
+            }
+                
                 <span>12.12.2012</span>
             </div>
         </div>

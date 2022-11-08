@@ -1,6 +1,6 @@
 import React from 'react';
 import {useState} from 'react'
-const InputSmsText = ({onAddSms, onSmsText}) => {
+const InputSmsText = ({onAddSms, onSmsText, handleChange, setOnButton}) => {
     
 
    
@@ -10,8 +10,10 @@ const InputSmsText = ({onAddSms, onSmsText}) => {
                 className="input" 
                 type="text" 
                 placeholder='Сообщение'
-                onChange={e => onSmsText(e.target.value)} />
-            <button onClick={onAddSms}>ok</button>
+                /* onChange={e => onSmsText(e.target.value)}  */
+                onChange={handleChange}
+                />
+            <button /* onClick={onAddSms} */onClick={() => setOnButton(true)} >ok</button>
         </div>
     );
 };
